@@ -2,8 +2,25 @@
 // npm install --save-dev prisma dotenv
 import 'dotenv/config';
 import { defineConfig } from 'prisma/config';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const databaseUrl = process.env.DATABASE_URL;
+function resolveDatabaseUrl(raw: string): string {
+    if (!raw.startsWith('file:')) {
+        return raw;
+    }
+    const filePath = raw.replace(/^file:/, '');
+    if (path.isAbsolute(filePath)) {
+        return raw;
+    }
+    const absolute = path.resolve(process.cwd(), filePath);
+    return `file:${absolute}`;
+}
+
+const file = fileURLToPath(import.meta.url);
+const dir = path.dirname(file);
+
+const databaseUrl = resolveDatabaseUrl(process.env.DATABASE_URL ?? 'file:./dev.db');
 
 if (!databaseUrl) {
     throw new Error('DATABASE_URL is not defined');

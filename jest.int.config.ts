@@ -1,6 +1,8 @@
 export default {
     testEnvironment: 'node',
-    testMatch: ['**/*.spec.ts'],
+    testMatch: ['**/*.int-spec.ts'],
+    setupFiles: ['./test/integration/jest.setup.ts'],
+    extensionsToTreatAsEsm: ['.ts'],
     transform: {
         '^.+\\.ts$': [
             '@swc/jest',
@@ -23,7 +25,7 @@ export default {
             },
         ],
     },
-    moduleFileExtensions: ['ts', 'js'],
+    moduleFileExtensions: ['ts', 'js', 'mjs'],
     moduleNameMapper: {
         '^(\\.{1,2}/.*)\\.js$': '$1',
     },

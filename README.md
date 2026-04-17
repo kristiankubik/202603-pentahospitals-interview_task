@@ -1,98 +1,43 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 202603 - backend SWE
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## PentaHospitals – zadanie
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Všeobecné informácie
 
-## Description
+Predstav si, že dostávaš nižšie uvedené zadania ako tickety v nástroji na projektové riadenie, pričom máš na starosti návrh a implementáciu backendu (endpointy, biznis logiku, databázové tabuľky a pod.). Tvojou úlohou je vypracovať riešenie, ktoré splní všetky funkčné požiadavky z pohľadu backendu. Ak ti čas neumožní plnú implementáciu, môžeš niektoré časti popísať textovo (napr. v komentároch v kóde alebo v samostatnom dokumente). Očakávame však aspoň čiastočnú implementáciu.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Otázky k nefunkčným požiadavkám (napr. zabezpečenie endpointov) sa môžu objaviť počas technického kola, no ich implementácia nie je nevyhnutná. Naším cieľom je overiť, či ovládaš základné princípy backendového vývoja v NestJS a dokážeš ich aplikovať.
 
-## Project setup
+Výstupom má byť verejný GitHub repozitár.
 
-```bash
-$ npm install
-```
+### Úvod
 
-## Compile and run the project
+Súkromná nemocnica otvára pôrodnícke oddelenie a potrebuje systém, ktorý umožní klientom rezervovať si termíny pôrodu.
 
-```bash
-# development
-$ npm run start
+#### Úloha 1: Publikovanie dostupných termínov na najbližší mesiac
 
-# watch mode
-$ npm run start:dev
+Ako administrátor chcem hromadne zverejniť všetky sloty na najbližší mesiac, aby sa budúce mamičky mohli prihlásiť na pôrod.
 
-# production mode
-$ npm run start:prod
-```
+- Rezervácie sa otvárajú raz mesačne v konkrétny deň a čas, v tomto termíne sa zverejnia sloty na vybrané dni.
+- Počet slotov v konkrétny deň určuje maximálny počet ľudí, ktorí si v danom dni môžu úspešne rezervovať termín (1 slot = 1 osoba).
+- Počet slotov na každý deň je konfigurovateľný podľa obchodných požiadaviek.
 
-## Run tests
+Príklad:
 
-```bash
-# unit tests
-$ npm run test
+-   6.  3. 2025 – 6 slotov (maximálne sa môže zarezervovať 6 osôb)
+-   7.  3. 2025 – 5 slotov
+-   8.  3. 2025 – 9 slotov
 
-# e2e tests
-$ npm run test:e2e
+#### Úloha 2: Rezervovanie termínu
 
-# test coverage
-$ npm run test:cov
-```
+Ako budúca mamička sa chcem prihlásiť na termín pôrodu cez rezervačný formulár.
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+- Rezervačný formulár obsahuje:
+- Meno a priezvisko
+- Telefónne číslo
+- Email
+- Dátum pôrodu z tehotenskej knižky
+- Systém musí zadané údaje uložiť.
+- Systém musí skontrolovať, či je k dispozícii voľný slot v zadanom dátume pôrodu.
+- Ak nie je voľný slot v danom dátume, automaticky sa hľadajú voľné sloty v rozmedzí ±2 dni (konkrétne v poradí: dátum pôrodu, -1 deň, +1 deň, -2 dni, +2 dni).
+- Ak sa nájde voľný termín, vytvorí a uloží sa rezervácia; inak sa rezervácia zamietne.
